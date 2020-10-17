@@ -1,132 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE etmfschema [
-        <!ELEMENT etmfschema (id, name, studyid, (nodes))>
-        <!ELEMENT nodes (node)*>
-        <!ELEMENT node (index, name, nodes)>
-        <!ELEMENT id (#PCDATA)>
+        <!ELEMENT etmfschema (name, studyid, (node)*)>
+        <!ELEMENT node (index, name, (node)*)>
         <!ELEMENT name (#PCDATA)>
         <!ELEMENT studyid (#PCDATA)>
         <!ELEMENT index (#PCDATA)>
         ]>
 <etmfschema>
-    <id>10001</id>
     <name>DIA Schema</name>
     <studyid>10002</studyid>
-    <nodes>
         <node>
             <index>1</index>
             <name>01 Trial Management</name>
-            <nodes>
                 <node>
                     <index>1.1</index>
                     <name>01.01 Trial Oversight</name>
-                    <nodes>
                         <node>
                             <index>1.1.1</index>
                             <name>01.01.01 Trial Master File Plan</name>
-                            <nodes></nodes>
                         </node>
                         <node>
                             <index>1.1.2</index>
                             <name>01.01.02 Trial Management Plan</name>
-                            <nodes></nodes>
                         </node>
-                    </nodes>
                 </node>
                 <node>
                     <index>1.2</index>
                     <name>01.02 Trial Team</name>
-                    <nodes>
                         <node>
                             <index>1.2.1</index>
                             <name>01.02.01 Trail Team Details</name>
-                            <nodes></nodes>
                         </node>
                         <node>
                             <index>1.2.2</index>
                             <name>01.02.02 Trail Team Curriculum Vitae</name>
-                            <nodes></nodes>
                         </node>
-                    </nodes>
                 </node>
-            </nodes>
         </node>
         <node>
             <index>2</index>
             <name>02 Central Trial Documents</name>
-            <nodes>
                 <node>
                     <index>2.1</index>
                     <name>02.01 Product and Trial Documentation</name>
-                    <nodes>
                         <node>
                             <index>2.1.1</index>
                             <name>02.01.01 Investigators Brochure</name>
-                            <nodes></nodes>
                         </node>
                         <node>
                             <index>2.1.2</index>
                             <name>02.01.02 Protocol</name>
-                            <nodes></nodes>
                         </node>
-                    </nodes>
                 </node>
                 <node>
                     <index>2.2</index>
                     <name>02.02 Subject Documentation</name>
-                    <nodes>
                         <node>
                             <index>2.2.1</index>
                             <name>02.02.01 Subject Diary</name>
-                            <nodes></nodes>
                         </node>
                         <node>
                             <index>2.2.2</index>
                             <name>02.02.02 Subject Questionnaire</name>
-                            <nodes></nodes>
                         </node>
-                    </nodes>
                 </node>
-            </nodes>
         </node>
-        <node>
-            <index></index>
-            <name></name>
-            <nodes>
-                <node>
-                    <index></index>
-                    <name></name>
-                    <nodes>
-                        <node>
-                            <index></index>
-                            <name></name>
-                            <nodes></nodes>
-                        </node>
-                        <node>
-                            <index></index>
-                            <name></name>
-                            <nodes></nodes>
-                        </node>
-                    </nodes>
-                </node>
-                <node>
-                    <index></index>
-                    <name></name>
-                    <nodes>
-                        <node>
-                            <index></index>
-                            <name></name>
-                            <nodes></nodes>
-                        </node>
-                        <node>
-                            <index></index>
-                            <name></name>
-                            <nodes></nodes>
-                        </node>
-                    </nodes>
-                </node>
-            </nodes>
-        </node>
-    </nodes>
 </etmfschema>
 

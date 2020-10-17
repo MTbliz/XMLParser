@@ -1,12 +1,12 @@
-import org.xml.sax.SAXException;
 
-import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.bind.JAXBException;
 import java.io.IOException;
 
 public class Program {
 
-    public static void main(String[] args) throws IOException, SAXException, ParserConfigurationException {
+    public static void main(String[] args) throws IOException, JAXBException {
         ReadXML readXML = new ReadXML();
-        readXML.readXML();
+        ETMFSchema etmfSchema = readXML.unmarshall();
+        System.out.println(etmfSchema.toString());
     }
 }

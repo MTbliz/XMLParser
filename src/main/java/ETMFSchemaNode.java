@@ -1,7 +1,14 @@
+import javax.xml.bind.Unmarshaller;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
+import javax.xml.bind.annotation.XmlType;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
+@XmlRootElement(name = "node")
+@XmlType(propOrder = {"name", "index", "children"})
 public class ETMFSchemaNode {
 
     private Long id;
@@ -22,6 +29,7 @@ public class ETMFSchemaNode {
         return id;
     }
 
+    @XmlTransient
     public void setId(Long id) {
         this.id = id;
     }
@@ -30,6 +38,7 @@ public class ETMFSchemaNode {
         return etmfSchema;
     }
 
+    @XmlTransient
     public void setEtmfSchema(ETMFSchema etmfSchema) {
         this.etmfSchema = etmfSchema;
     }
@@ -38,6 +47,7 @@ public class ETMFSchemaNode {
         return name;
     }
 
+    @XmlElement(name = "name")
     public void setName(String name) {
         this.name = name;
     }
@@ -46,6 +56,7 @@ public class ETMFSchemaNode {
         return level;
     }
 
+    @XmlTransient
     public void setLevel(Integer level) {
         this.level = level;
     }
@@ -54,6 +65,7 @@ public class ETMFSchemaNode {
         return index;
     }
 
+    @XmlElement(name = "index")
     public void setIndex(String index) {
         this.index = index;
     }
@@ -62,14 +74,26 @@ public class ETMFSchemaNode {
         return parentNode;
     }
 
+    @XmlTransient
     public void setParentNode(ETMFSchemaNode parentNode) {
         this.parentNode = parentNode;
+    }
+
+    public void beforeUnmarshal(Unmarshaller u, Object parent) {
+        if (parent instanceof ETMFSchema)
+            this.etmfSchema = (ETMFSchema) parent;
+        if (parent instanceof ETMFSchemaNode) {
+            ETMFSchemaNode etmfSchemaNode = (ETMFSchemaNode) parent;
+            this.parentNode = (ETMFSchemaNode) parent;
+            this.etmfSchema = etmfSchemaNode.getEtmfSchema();
+        }
     }
 
     public Set<ETMFSchemaNode> getChildren() {
         return children;
     }
 
+    @XmlElement(name = "node")
     public void setChildren(Set<ETMFSchemaNode> children) {
         this.children = children;
     }
